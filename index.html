@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DMM3VNRLD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8DMM3VNRLD');
-</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MoniMoni - 换乘模拟器、嫂嫂/嫂子模拟器与 AI 互动剧本工坊</title>
@@ -60,6 +51,46 @@
           "email": "support@monimoniapp.com",
           "contactType": "customer support"
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "MoniMoni 可以玩换乘模拟器吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。MoniMoni 支持导入换乘模拟器、换乘恋爱模拟器、恋综观察室剧本等文字模拟器，并把角色、前任关系、匿名短信、观察室点评和互动选项整理成可玩的运行台。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "MoniMoni 可以玩嫂嫂模拟器或嫂子模拟器吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。MoniMoni 适合嫂嫂模拟器、嫂子模拟器、韩娱模拟器、角色关系生活模拟等长文本剧本，支持保存联系人、角色记忆和当前进度。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "MoniMoni 会保存我玩过的模拟器吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MoniMoni 会像一个本地模拟器图书馆，把你导入和玩过的文字模拟器、txt 剧本、角色记忆和存档聚合保存，方便下次继续。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "试玩版需要自己提供 API Key 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "需要。MoniMoni 试玩版需要用户自己提供 API Key。正式版会考虑提供 API，也会继续支持自填模型配置。"
+            }
+          }
+        ]
       }
     </script>
     <style>
@@ -510,6 +541,57 @@
         font-size: 15px;
       }
 
+      .search-copy {
+        display: grid;
+        grid-template-columns: 0.78fr 1.22fr;
+        gap: 30px;
+        align-items: start;
+      }
+
+      .search-copy aside {
+        padding: 22px;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        background: rgba(255, 253, 248, 0.72);
+      }
+
+      .search-copy aside strong {
+        display: block;
+        margin-bottom: 14px;
+      }
+
+      .keyword-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .keyword-list li {
+        padding: 6px 9px;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        background: rgba(247, 245, 239, 0.72);
+        font-size: 12px;
+      }
+
+      .search-copy article {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", sans-serif;
+        font-size: 17px;
+        line-height: 2;
+      }
+
+      .search-copy h3 {
+        margin: 26px 0 8px;
+        font-family:
+          ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", "PingFang SC", "Microsoft YaHei",
+          monospace;
+        font-size: 20px;
+      }
+
       .console {
         border: 1px solid var(--ink);
         background: var(--ink);
@@ -596,7 +678,8 @@
 
       @media (max-width: 900px) {
         .manual-grid,
-        .split {
+        .split,
+        .search-copy {
           grid-template-columns: 1fr;
         }
 
@@ -687,13 +770,13 @@
       }
     </style>
   </head>
-  
   <body>
     <header class="topbar" aria-label="官网导航">
       <a class="wordmark" href="#top">MONIMONI</a>
       <nav class="nav" aria-label="主要链接">
         <a href="#manual">说明</a>
         <a href="#types">类型</a>
+        <a href="#search">搜索</a>
         <a href="#console">运行台</a>
         <a class="is-primary" href="https://testflight.apple.com/join/uFaYcMtQ">iOS</a>
         <span class="menu-mark" aria-hidden="true"><span></span></span>
@@ -704,7 +787,7 @@
       <section class="hero" aria-label="MoniMoni 首屏">
         <div class="hero-inner">
           <p class="file-label">MONI-LE-LMCC-0116</p>
-          <h1>not a prompt.<br />a simulator.</h1>
+          <h1>MoniMoni<br />AI simulator.</h1>
           <div class="rule">------------------------------------------------</div>
           <p class="hero-copy">
             <strong>MoniMoni</strong> 把换乘模拟器、嫂嫂/嫂子模拟器、恋综模拟器和角色关系剧本转换成可玩的 AI 互动体验。系统会识别角色、关系和玩法规则，再把长文本拆成情节、对话、按钮选项与可保存进度。
@@ -824,6 +907,46 @@
         </div>
       </section>
 
+      <section id="search" class="page-section">
+        <div class="section-inner">
+          <div class="manual-header">
+            <div>
+              <p class="section-kicker">SEARCH INTENT</p>
+              <h2>如果你在找换乘模拟器、嫂嫂模拟器或文字剧本。</h2>
+            </div>
+          </div>
+          <div class="search-copy">
+            <aside>
+              <strong>常见搜索词</strong>
+              <ul class="keyword-list" aria-label="MoniMoni 适配的模拟器搜索词">
+                <li>换乘模拟器</li>
+                <li>换乘恋爱模拟器</li>
+                <li>恋综模拟器</li>
+                <li>嫂嫂模拟器</li>
+                <li>嫂子模拟器</li>
+                <li>韩娱模拟器</li>
+                <li>文字模拟器</li>
+                <li>AI 互动剧本</li>
+                <li>txt 剧本阅读器</li>
+              </ul>
+            </aside>
+            <article>
+              <p>
+                MoniMoni 面向的是已经拥有一段模拟器原文、txt 剧本或角色设定的人。你可以把散落在聊天记录、备忘录、网盘和本地文件里的模拟器集中导入，像整理电子书一样整理自己的模拟器书架。
+              </p>
+              <h3>换乘模拟器怎么运行？</h3>
+              <p>
+                导入换乘模拟器或恋综模拟器后，MoniMoni 会优先识别嘉宾、前任关系、匿名短信、约会任务和观察室点评，把每一轮推进拆成情节卡片和 A/B/C/D 行动按钮。
+              </p>
+              <h3>嫂嫂/嫂子模拟器怎么保存？</h3>
+              <p>
+                导入嫂嫂模拟器、嫂子模拟器或韩娱角色关系剧本后，MoniMoni 会沉淀联系人、角色记忆、关系变化和存档，让长线剧情下次还能接着玩。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="console" class="page-section">
         <div class="section-inner">
           <div class="manual-header">
@@ -884,7 +1007,7 @@
 
     <footer class="footer">
       <span>MoniMoni © 2026</span>
-      <span>support: <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · author: <a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a></span>
+      <span>联系: <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · author: <a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a></span>
     </footer>
   </body>
 </html>
