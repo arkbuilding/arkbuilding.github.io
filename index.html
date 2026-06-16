@@ -3,11 +3,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MoniMoni - AI 互动模拟器工坊</title>
+    <title>MoniMoni - 换乘模拟器、嫂嫂/嫂子模拟器与 AI 互动剧本工坊</title>
     <meta
       name="description"
-      content="MoniMoni 是一个把自然语言剧本转换成可玩的 AI 互动模拟器的 App。导入剧本，识别角色、关系与玩法，用按钮和卡片推进情节。"
+      content="MoniMoni 是一个 AI 互动模拟器 App，适合换乘模拟器、嫂嫂模拟器、嫂子模拟器、恋综模拟器、角色关系模拟器和各类文字剧本。导入剧本，识别角色、关系与玩法，用按钮和卡片推进情节，并在本地保存玩过的模拟器。"
     />
+    <meta
+      name="keywords"
+      content="MoniMoni,模拟器,AI模拟器,文字模拟器,互动模拟器,换乘模拟器,嫂嫂模拟器,嫂子模拟器,恋综模拟器,换乘恋爱模拟器,韩娱模拟器,剧本工坊,角色扮演,AI剧本,文字游戏"
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://monimoniapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MoniMoni" />
+    <meta property="og:title" content="MoniMoni - AI 互动模拟器工坊" />
+    <meta
+      property="og:description"
+      content="为换乘模拟器、嫂嫂模拟器、嫂子模拟器、恋综模拟器和角色关系剧本准备的 AI 互动模拟器 App。导入、解析、游玩并本地保存你的模拟器。"
+    />
+    <meta property="og:url" content="https://monimoniapp.com/" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MoniMoni",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "MoniMoni 是一个 AI 互动模拟器 App，适合换乘模拟器、嫂嫂模拟器、嫂子模拟器、恋综模拟器、角色关系模拟器和各类文字剧本。它可以导入剧本、解析角色关系、生成按钮选项，并在本地保存玩过的模拟器。",
+        "url": "https://monimoniapp.com/",
+        "downloadUrl": "https://monimoniapp.com/download/apk",
+        "sameAs": [
+          "https://www.threads.com/@lelmcc0116",
+          "https://testflight.apple.com/join/uFaYcMtQ"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "url": "https://www.threads.com/@lelmcc0116"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@monimoniapp.com",
+          "contactType": "customer support"
+        }
+      }
+    </script>
     <style>
       :root {
         color-scheme: light;
@@ -220,6 +265,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 10px;
         padding: 0 30px;
         border: 1px solid var(--ink);
         background: var(--paper-strong);
@@ -227,9 +273,34 @@
         font-weight: 800;
       }
 
+      .button small {
+        display: block;
+        color: inherit;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+        opacity: 0.72;
+        text-transform: uppercase;
+      }
+
+      .button strong {
+        display: block;
+        line-height: 1.18;
+      }
+
       .button.primary {
         background: var(--ink);
         color: var(--paper-strong);
+      }
+
+      .store-icon {
+        width: 22px;
+        height: 22px;
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+        font-size: 18px;
+        line-height: 1;
       }
 
       .privacy-note {
@@ -241,6 +312,7 @@
       }
 
       .page-section {
+        scroll-margin-top: 72px;
         padding: 86px 28px;
         border-top: 1px solid rgba(0, 0, 0, 0.18);
       }
@@ -343,6 +415,18 @@
 
       .manual-copy p {
         margin-bottom: 16px;
+      }
+
+      .library-note {
+        margin-top: 22px;
+        padding: 16px 18px;
+        border: 1px dashed rgba(0, 0, 0, 0.34);
+        background: rgba(247, 245, 239, 0.62);
+      }
+
+      .library-note strong {
+        display: block;
+        margin-bottom: 6px;
       }
 
       .steps {
@@ -545,7 +629,7 @@
 
         .button {
           min-height: 46px;
-          padding: 0 22px;
+          padding: 0 18px;
         }
 
         .page-section {
@@ -601,7 +685,7 @@
         <a href="#manual">说明</a>
         <a href="#types">类型</a>
         <a href="#console">运行台</a>
-        <a class="is-primary" href="https://ai-ui-api-key.vercel.app/">APP</a>
+        <a class="is-primary" href="https://testflight.apple.com/join/uFaYcMtQ">iOS</a>
         <span class="menu-mark" aria-hidden="true"><span></span></span>
       </nav>
     </header>
@@ -609,17 +693,27 @@
     <main id="top">
       <section class="hero" aria-label="MoniMoni 首屏">
         <div class="hero-inner">
-          <p class="file-label">FILE · MONI-2026-001</p>
+          <p class="file-label">MONI-LE-LMCC-0116</p>
           <h1>not a prompt.<br />a simulator.</h1>
           <div class="rule">------------------------------------------------</div>
           <p class="hero-copy">
-            <strong>MoniMoni</strong> 把一段自然语言剧本转换成可玩的 AI 互动模拟器。系统会识别角色、关系和玩法规则，再把长文本拆成情节、对话、按钮选项与可保存进度。
+            <strong>MoniMoni</strong> 把换乘模拟器、嫂嫂/嫂子模拟器、恋综模拟器和角色关系剧本转换成可玩的 AI 互动体验。系统会识别角色、关系和玩法规则，再把长文本拆成情节、对话、按钮选项与可保存进度。
           </p>
           <div class="actions">
-            <a class="button primary" href="https://ai-ui-api-key.vercel.app/">打开试玩版 →</a>
-            <a class="button" href="#manual">阅读说明</a>
+            <a class="button primary" href="https://testflight.apple.com/join/uFaYcMtQ" aria-label="通过 TestFlight 下载 MoniMoni iOS 试玩版">
+              <span class="store-icon" aria-hidden="true"></span>
+              <span><small>TestFlight</small><strong>iOS 下载</strong></span>
+            </a>
+            <a class="button" href="https://monimoniapp.com/download/apk" aria-label="下载 MoniMoni Android APK">
+              <span class="store-icon" aria-hidden="true">▶</span>
+              <span><small>APK</small><strong>Google 下载</strong></span>
+            </a>
+            <a class="button" href="https://www.threads.com/@lelmcc0116" aria-label="打开作者 Threads 主页">
+              <span class="store-icon" aria-hidden="true">@</span>
+              <span><small>Author</small><strong>Threads</strong></span>
+            </a>
           </div>
-          <p class="privacy-note">— 试玩版默认接入模型 · 正式版支持自填模型和 API Key —</p>
+          <p class="privacy-note">— 试玩版需要自己提供 API Key · 正式版会考虑提供 API —</p>
         </div>
       </section>
 
@@ -636,7 +730,7 @@
           <article class="document" aria-label="MoniMoni 产品说明书">
             <div class="doc-meta">
               <span>MONIMONI SYSTEMS INC. — USER MANUAL v1.0</span>
-              <span>档案编号 MONI-2026-001</span>
+              <span>档案编号 MONI-LE-LMCC-0116</span>
             </div>
             <div class="doc-title">
               <strong>MONIMONI APP</strong>
@@ -647,13 +741,17 @@
               <div class="manual-copy">
                 <p>本系统不是普通聊天框。它会先阅读剧本，判断应该套用哪一种模拟器类型，再按固定模块推进体验。</p>
                 <p>用户不需要在一大段设定里寻找可操作内容。选项会变成按钮；角色、联系人、记忆和存档会沉淀下来；每一次推进都回到可追踪的运行台。</p>
+                <div class="library-note">
+                  <strong>LOCAL LIBRARY</strong>
+                  <p>MoniMoni 会像一个模拟器阅读器或本地图书馆，把你玩过的换乘模拟器、嫂嫂/嫂子模拟器、恋综模拟器和其他文字剧本聚合保存。原来散落在各处的 txt、设定和存档，可以在一个地方继续打开、整理和推进。</p>
+                </div>
               </div>
               <div class="steps" aria-label="操作步骤">
                 <div class="step">
                   <code>S-01</code>
                   <div>
                     <h3>导入剧本</h3>
-                    <p>粘贴原文，或从默认模拟器开始试玩。</p>
+                    <p>粘贴 txt 原文，导入换乘模拟器、嫂嫂/嫂子模拟器、恋综模拟器或其他文字剧本。</p>
                   </div>
                 </div>
                 <div class="step">
@@ -674,7 +772,7 @@
                   <code>S-04</code>
                   <div>
                     <h3>保存进度</h3>
-                    <p>联系人、角色记忆和当前节点都可以下次继续。</p>
+                    <p>联系人、角色记忆、当前节点和玩过的模拟器都可以下次继续。</p>
                   </div>
                 </div>
               </div>
@@ -699,8 +797,8 @@
             </article>
             <article class="index-card">
               <header><span>TYPE-B</span><span>RELATIONSHIP LIFE</span></header>
-              <h3>角色关系生活模拟</h3>
-              <p>固定角色群、长期记忆、好感变化、秘密累积和日常事件。</p>
+              <h3>嫂嫂 / 嫂子 / 角色关系生活模拟</h3>
+              <p>适合嫂嫂模拟器、嫂子模拟器、韩娱模拟器、固定角色群、长期记忆、好感变化和秘密累积。</p>
             </article>
             <article class="index-card">
               <header><span>TYPE-C</span><span>MYSTERY FILE</span></header>
@@ -759,15 +857,24 @@
         <div class="quote">
           <p class="section-kicker">THANK YOU FOR YOUR SCRIPT</p>
           <h2>让模拟器不再只是一段提示词。</h2>
-          <p>MoniMoni 想把阅读门槛、规则理解、选项整理和进度保存交给系统，让玩家只需要进入情节。</p>
-          <a class="button primary" href="https://ai-ui-api-key.vercel.app/">打开试玩版 →</a>
+          <p>MoniMoni 想把阅读门槛、规则理解、选项整理和进度保存交给系统，让换乘模拟器、嫂嫂/嫂子模拟器和各种文字互动剧本都能被收进同一个本地书架。</p>
+          <div class="actions">
+            <a class="button primary" href="https://testflight.apple.com/join/uFaYcMtQ">
+              <span class="store-icon" aria-hidden="true"></span>
+              <span><small>TestFlight</small><strong>iOS 下载</strong></span>
+            </a>
+            <a class="button" href="https://monimoniapp.com/download/apk">
+              <span class="store-icon" aria-hidden="true">▶</span>
+              <span><small>APK</small><strong>Google 下载</strong></span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <span>MoniMoni © 2026</span>
-      <span>okmonimoni@gmail.com</span>
+      <span>support: <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · author: <a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a></span>
     </footer>
   </body>
 </html>
