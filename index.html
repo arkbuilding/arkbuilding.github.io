@@ -89,6 +89,14 @@
               "@type": "Answer",
               "text": "需要。MoniMoni 试玩版需要用户自己提供 API Key。正式版会考虑提供 API，也会继续支持自填模型配置。"
             }
+          },
+          {
+            "@type": "Question",
+            "name": "在哪里购买 API Key？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "支持两个购买渠道：DeepSeek 官方平台 https://platform.deepseek.com，以及 ArkAPI https://arkapi.hpmp.fun/pricing。ArkAPI 的价格和 DeepSeek 官方一样。"
+            }
           }
         ]
       }
@@ -96,22 +104,24 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #f7f7f5;
-        --surface: #ffffff;
-        --surface-soft: #f1f1ef;
-        --surface-warm: #fbfaf6;
-        --ink: #181b23;
-        --muted: #68707d;
-        --muted-2: #9399a3;
-        --line: rgba(24, 27, 35, 0.1);
-        --line-strong: rgba(24, 27, 35, 0.16);
-        --black: #06070a;
-        --green: #2fc86f;
-        --pink: #ec7da1;
-        --amber: #f0b75f;
-        --blue: #82a8f5;
-        --shadow: 0 22px 70px rgba(17, 24, 39, 0.12);
-        --shadow-soft: 0 12px 36px rgba(17, 24, 39, 0.08);
+        --bg: #fff7fb;
+        --surface: #fffefd;
+        --surface-soft: #fff0f6;
+        --surface-warm: #fff8df;
+        --ink: #302535;
+        --muted: #7d6f80;
+        --muted-2: #a28f9d;
+        --line: rgba(180, 87, 128, 0.22);
+        --line-strong: rgba(180, 87, 128, 0.34);
+        --black: #5d3a55;
+        --green: #70cfb3;
+        --pink: #f58caf;
+        --pink-strong: #d95783;
+        --amber: #ffd773;
+        --blue: #94c9ff;
+        --lavender: #cdb8ff;
+        --shadow: 0 22px 60px rgba(194, 88, 130, 0.18);
+        --shadow-soft: 0 12px 32px rgba(194, 88, 130, 0.12);
         --radius: 8px;
         --max: 1160px;
       }
@@ -127,7 +137,9 @@
       body {
         margin: 0;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(247, 247, 245, 0.94) 420px),
+          linear-gradient(180deg, rgba(255, 249, 253, 0.92), rgba(255, 247, 251, 0.98) 520px),
+          repeating-linear-gradient(0deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
+          repeating-linear-gradient(90deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
           var(--bg);
         color: var(--ink);
         font-family:
@@ -144,12 +156,9 @@
         inset: 0;
         pointer-events: none;
         background:
-          radial-gradient(ellipse at 8% 12%, rgba(24, 27, 35, 0.12), transparent 28%),
-          radial-gradient(ellipse at 88% 8%, rgba(24, 27, 35, 0.1), transparent 24%),
-          linear-gradient(90deg, rgba(24, 27, 35, 0.025) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(24, 27, 35, 0.022) 1px, transparent 1px);
-        background-size: auto, auto, 68px 68px, 68px 68px;
-        opacity: 0.6;
+          linear-gradient(135deg, rgba(245, 140, 175, 0.12) 25%, transparent 25%) 0 0 / 22px 22px,
+          linear-gradient(315deg, rgba(148, 201, 255, 0.12) 25%, transparent 25%) 0 0 / 22px 22px;
+        opacity: 0.54;
         z-index: -1;
       }
 
@@ -175,8 +184,8 @@
         display: flex;
         justify-content: center;
         padding: 12px 24px;
-        border-bottom: 1px solid rgba(24, 27, 35, 0.07);
-        background: rgba(247, 247, 245, 0.86);
+        border-bottom: 1px solid rgba(214, 103, 146, 0.18);
+        background: rgba(255, 247, 251, 0.86);
         -webkit-backdrop-filter: blur(18px);
         backdrop-filter: blur(18px);
       }
@@ -201,36 +210,24 @@
       }
 
       .brand-icon {
-        width: 31px;
-        height: 24px;
+        width: 34px;
+        height: 34px;
         position: relative;
         flex: 0 0 auto;
-      }
-
-      .brand-icon::before,
-      .brand-icon::after {
-        content: "";
-        position: absolute;
-        border: 3px solid var(--ink);
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: linear-gradient(135deg, #fff, #ffe1ed);
+        box-shadow: 0 8px 18px rgba(217, 87, 131, 0.18);
       }
 
       .brand-icon::before {
-        left: 0;
-        right: 0;
-        bottom: 1px;
-        height: 14px;
-        border-radius: 14px;
-        background: transparent;
-      }
-
-      .brand-icon::after {
-        left: 8px;
-        top: 0;
-        width: 12px;
-        height: 12px;
-        border-bottom: 0;
-        border-radius: 13px 13px 0 0;
-        background: var(--bg);
+        content: "♡";
+        color: var(--pink-strong);
+        font-size: 19px;
+        font-weight: 900;
+        line-height: 1;
       }
 
       .nav-links,
@@ -250,7 +247,7 @@
 
       .nav-links a,
       .nav-actions a:not(.nav-button) {
-        color: #4f5662;
+        color: #715f72;
         font-size: 14px;
         font-weight: 520;
       }
@@ -269,9 +266,9 @@
         gap: 9px;
         border: 1px solid transparent;
         border-radius: var(--radius);
-        background: var(--black);
+        background: var(--pink-strong);
         color: #fff;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+        box-shadow: 0 12px 24px rgba(217, 87, 131, 0.22);
         font-size: 14px;
         font-weight: 700;
         line-height: 1;
@@ -288,16 +285,22 @@
       }
 
       .button.secondary {
-        background: #ecebea;
+        background: #fff0bd;
         color: var(--ink);
-        box-shadow: none;
+        box-shadow: 0 12px 24px rgba(255, 196, 82, 0.18);
       }
 
       .button.ghost {
         border-color: var(--line-strong);
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.76);
         color: var(--ink);
         box-shadow: none;
+      }
+
+      .button.mint {
+        background: #66c7ad;
+        color: #173d35;
+        box-shadow: 0 12px 24px rgba(102, 199, 173, 0.2);
       }
 
       .button small {
@@ -331,11 +334,11 @@
       }
 
       .hero {
-        min-height: 900px;
+        min-height: 890px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 126px 24px 76px;
+        padding: 126px 24px 80px;
         text-align: center;
       }
 
@@ -352,9 +355,9 @@
         padding: 0 17px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.78);
         color: var(--ink);
-        box-shadow: 0 8px 26px rgba(17, 24, 39, 0.06);
+        box-shadow: 0 8px 26px rgba(217, 87, 131, 0.09);
         font-size: 14px;
         font-weight: 640;
       }
@@ -362,14 +365,15 @@
       .pill-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
+        border-radius: 2px;
         background: var(--green);
+        transform: rotate(45deg);
       }
 
       .hero h1 {
-        max-width: 820px;
+        max-width: 860px;
         margin: 0 auto 24px;
-        font-size: 68px;
+        font-size: 66px;
         line-height: 1.05;
         font-weight: 820;
         letter-spacing: 0;
@@ -378,7 +382,7 @@
       .hero-copy {
         max-width: 660px;
         margin: 0 auto 34px;
-        color: #656d7b;
+        color: var(--muted);
         font-size: 21px;
         line-height: 1.45;
       }
@@ -393,7 +397,7 @@
 
       .note {
         margin: 0 0 46px;
-        color: #838996;
+        color: var(--muted-2);
         font-size: 13px;
       }
 
@@ -402,7 +406,7 @@
         display: grid;
         grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
         gap: 26px;
-        align-items: center;
+        align-items: start;
         margin: 0 auto;
         text-align: left;
       }
@@ -410,9 +414,27 @@
       .showcase-copy {
         padding: 34px;
         border: 1px solid var(--line);
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.82);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 252, 0.9)),
+          repeating-linear-gradient(0deg, transparent 0 30px, rgba(245, 140, 175, 0.16) 30px 31px);
         box-shadow: var(--shadow-soft);
+        position: relative;
+      }
+
+      .showcase-copy::before {
+        content: "dear diary";
+        position: absolute;
+        top: -13px;
+        left: 24px;
+        padding: 4px 12px;
+        border: 1px solid rgba(255, 193, 109, 0.72);
+        border-radius: 6px;
+        background: #fff1b9;
+        color: #8b6342;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
       }
 
       .showcase-copy h2 {
@@ -423,7 +445,7 @@
 
       .showcase-copy p {
         margin-bottom: 18px;
-        color: #68707d;
+        color: var(--muted);
         font-size: 17px;
       }
 
@@ -440,7 +462,7 @@
         grid-template-columns: 28px 1fr;
         gap: 10px;
         align-items: start;
-        color: #363c47;
+        color: #55445b;
         font-size: 15px;
       }
 
@@ -449,9 +471,9 @@
         height: 24px;
         display: grid;
         place-items: center;
-        border-radius: 999px;
-        background: #101116;
-        color: #fff;
+        border-radius: 7px;
+        background: #ffe1ed;
+        color: var(--pink-strong);
         font-style: normal;
         font-size: 12px;
         font-weight: 800;
@@ -466,8 +488,8 @@
 
       .phone-shot {
         overflow: hidden;
-        border: 1px solid rgba(24, 27, 35, 0.12);
-        border-radius: 28px;
+        border: 1px solid rgba(180, 87, 128, 0.2);
+        border-radius: 16px;
         background: #fff;
         box-shadow: var(--shadow);
       }
@@ -491,7 +513,7 @@
       .shot-caption {
         padding: 13px 15px 15px;
         border-top: 1px solid var(--line);
-        background: #fff;
+        background: #fff9fc;
       }
 
       .shot-caption strong {
@@ -501,7 +523,7 @@
       }
 
       .shot-caption span {
-        color: #747b86;
+        color: var(--muted);
         font-size: 13px;
       }
 
@@ -524,7 +546,7 @@
         align-items: center;
         gap: 8px;
         margin-bottom: 14px;
-        color: #68707d;
+        color: var(--pink-strong);
         font-size: 13px;
         font-weight: 800;
         text-transform: uppercase;
@@ -534,8 +556,9 @@
         content: "";
         width: 8px;
         height: 8px;
-        border-radius: 50%;
-        background: var(--green);
+        border-radius: 2px;
+        background: var(--amber);
+        transform: rotate(45deg);
       }
 
       .section-heading h2 {
@@ -546,7 +569,7 @@
       }
 
       .section-heading p {
-        color: #68707d;
+        color: var(--muted);
         font-size: 18px;
       }
 
@@ -560,8 +583,8 @@
         min-height: 250px;
         padding: 24px;
         border: 1px solid var(--line);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.78);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.82);
         box-shadow: var(--shadow-soft);
       }
 
@@ -571,8 +594,9 @@
         display: grid;
         place-items: center;
         margin-bottom: 54px;
-        border-radius: 13px;
-        background: #f1f1ef;
+        border-radius: 8px;
+        background: #ffe1ed;
+        color: var(--pink-strong);
         font-size: 21px;
       }
 
@@ -583,7 +607,7 @@
 
       .feature-card p {
         margin: 0;
-        color: #68707d;
+        color: var(--muted);
         font-size: 15px;
       }
 
@@ -597,8 +621,8 @@
       .keyword-box,
       .qa-box {
         border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.82);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.84);
         box-shadow: var(--shadow-soft);
       }
 
@@ -625,8 +649,8 @@
         padding: 9px 12px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: #f6f6f4;
-        color: #4f5662;
+        background: #fff1f7;
+        color: #6d5369;
         font-size: 13px;
         font-weight: 700;
       }
@@ -651,7 +675,90 @@
 
       .qa-item p {
         margin: 0;
-        color: #68707d;
+        color: var(--muted);
+      }
+
+      .api-section {
+        background:
+          linear-gradient(180deg, rgba(255, 245, 250, 0), rgba(255, 240, 247, 0.78) 18%, rgba(255, 248, 252, 0));
+      }
+
+      .api-panel {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .api-note,
+      .api-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .api-note {
+        padding: 26px;
+        background:
+          linear-gradient(180deg, rgba(255, 248, 223, 0.92), rgba(255, 255, 255, 0.88)),
+          repeating-linear-gradient(0deg, transparent 0 28px, rgba(217, 87, 131, 0.11) 28px 29px);
+      }
+
+      .api-note strong {
+        display: block;
+        margin-bottom: 12px;
+        color: #744a34;
+        font-size: 20px;
+      }
+
+      .api-note p {
+        margin-bottom: 14px;
+        color: #765f57;
+      }
+
+      .api-note p:last-child {
+        margin-bottom: 0;
+      }
+
+      .api-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .api-card {
+        min-height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+      }
+
+      .api-card h3 {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .api-card p {
+        color: var(--muted);
+      }
+
+      .api-badge {
+        width: fit-content;
+        margin-bottom: 18px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #eefbf6;
+        color: #2f7d69;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .api-card .button {
+        width: 100%;
+        min-width: 0;
       }
 
       .cta {
@@ -663,8 +770,10 @@
         margin: 0 auto;
         padding: 48px;
         border: 1px solid var(--line);
-        border-radius: 22px;
-        background: #fff;
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 241, 247, 0.94)),
+          repeating-linear-gradient(90deg, rgba(255, 215, 229, 0.3) 0 1px, transparent 1px 34px);
         box-shadow: var(--shadow);
         text-align: center;
       }
@@ -679,7 +788,7 @@
       .cta-card p {
         max-width: 650px;
         margin: 0 auto 28px;
-        color: #68707d;
+        color: var(--muted);
         font-size: 18px;
       }
 
@@ -690,7 +799,7 @@
         width: min(100%, var(--max));
         margin: 0 auto;
         padding: 30px 24px 44px;
-        color: #747b86;
+        color: var(--muted);
         font-size: 14px;
       }
 
@@ -716,7 +825,9 @@
         }
 
         .feature-grid,
-        .intent-panel {
+        .intent-panel,
+        .api-panel,
+        .api-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -846,6 +957,11 @@
           margin-bottom: 32px;
         }
 
+        .api-note,
+        .api-card {
+          padding: 22px 18px;
+        }
+
         .cta-card {
           padding: 34px 20px;
         }
@@ -872,6 +988,7 @@
         <nav class="nav-links" aria-label="主要链接">
           <a href="#start">开始</a>
           <a href="#library">功能</a>
+          <a href="#buy-api">买 API</a>
           <a href="#search">适合谁玩</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -885,11 +1002,11 @@
     <main id="top">
       <section class="hero" id="start" aria-label="MoniMoni 产品介绍">
         <div class="hero-inner">
-          <a class="pill" href="https://testflight.apple.com/join/uFaYcMtQ">
+          <!-- <a class="pill" href="https://testflight.apple.com/join/uFaYcMtQ">
             <span class="pill-dot" aria-hidden="true"></span>
             <span>iOS TestFlight 试玩开放中</span>
             <span aria-hidden="true">›</span>
-          </a>
+          </a> -->
           <h1>不用再对 AI<br />一直说“继续”。</h1>
           <p class="hero-copy">
             MoniMoni 是一个可以把各种模拟器文档直接丢进去玩的 App。剧情、选项、短信、论坛和存档都在一个地方，不用再让聊天记录散落一地。
@@ -906,6 +1023,10 @@
             <a class="button ghost" href="https://www.threads.com/@lelmcc0116" aria-label="打开作者 Threads 主页">
               <span class="button-icon" aria-hidden="true">@</span>
               <span><small>作者</small><strong>Threads</strong></span>
+            </a>
+            <a class="button ghost" href="#buy-api" aria-label="查看 API Key 购买渠道">
+              <span class="button-icon" aria-hidden="true">♡</span>
+              <span><small>API Key</small><strong>购买入口</strong></span>
             </a>
           </div>
           <p class="note">试玩版需要自己提供 API Key · 正式版会考虑提供 API</p>
@@ -986,6 +1107,53 @@
         </div>
       </section>
 
+      <section class="sections api-section" id="buy-api">
+        <div class="section-inner">
+          <div class="section-heading">
+            <span class="kicker">API Key</span>
+            <h2>试玩版要自备 API，也给你放好购买入口。</h2>
+            <p>
+              MoniMoni 支持自填模型配置。你可以从 DeepSeek 官方平台购买，也可以选择 ArkAPI；ArkAPI 的价格和 DeepSeek 官方一样。
+            </p>
+          </div>
+          <div class="api-panel">
+            <aside class="api-note">
+              <strong>小纸条</strong>
+              <p>购买后把 API Key 填进 App 的模型配置里，就可以开始跑你的模拟器剧情。</p>
+              <p>可以在api配置页面，高级设置里输入{
+                "thinking": {
+                  "type": "disabled"
+                }
+              }，关闭模型的思考模式</p>
+            </aside>
+            <div class="api-grid" aria-label="API Key 购买渠道">
+              <article class="api-card">
+                <div>
+                  <span class="api-badge">官方渠道</span>
+                  <h3>DeepSeek 官方平台</h3>
+                  <p>适合想直接在官方控制台充值、管理 Key 和查看用量的用户。</p>
+                </div>
+                <a class="button" href="https://platform.deepseek.com" aria-label="前往 DeepSeek 官方平台购买 API Key">
+                  <span class="button-icon" aria-hidden="true">↗</span>
+                  <span><small>DeepSeek</small><strong>去购买 API</strong></span>
+                </a>
+              </article>
+              <article class="api-card">
+                <div>
+                  <span class="api-badge">同官方价格</span>
+                  <h3>ArkAPI</h3>
+                  <p>另一个可购买 API 的入口，价格和 DeepSeek 官方一样，适合想用备用渠道的用户。</p>
+                </div>
+                <a class="button mint" href="https://arkapi.hpmp.fun/pricing" aria-label="前往 ArkAPI 购买 API Key">
+                  <span class="button-icon" aria-hidden="true">↗</span>
+                  <span><small>ArkAPI</small><strong>查看价格</strong></span>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="sections" id="search">
         <div class="section-inner">
           <div class="section-heading">
@@ -1021,6 +1189,10 @@
                 <h3>玩过的模拟器会保存在哪里？</h3>
                 <p>MoniMoni 会像本地模拟器图书馆一样保存导入过的剧本、角色记忆和当前进度，方便之后继续打开。</p>
               </article>
+              <article class="qa-item">
+                <h3>API Key 可以在哪里买？</h3>
+                <p>支持 DeepSeek 官方平台和 ArkAPI 两个购买渠道。ArkAPI 的价格和 DeepSeek 官方一样，买好之后填进 App 的模型配置即可。</p>
+              </article>
             </div>
           </div>
         </div>
@@ -1039,6 +1211,10 @@
               <span class="button-icon" aria-hidden="true">▶</span>
               <span><small>APK</small><strong>Google 下载</strong></span>
             </a>
+            <a class="button ghost" href="#buy-api">
+              <span class="button-icon" aria-hidden="true">♡</span>
+              <span><small>API Key</small><strong>购买入口</strong></span>
+            </a>
           </div>
         </div>
       </section>
@@ -1046,7 +1222,7 @@
 
     <footer class="footer">
       <span>MoniMoni © 2026</span>
-      <span>联系邮箱：<a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · 作者：<a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a></span>
+      <span>联系邮箱：<a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · 作者：<a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a> · 社区：<a href="https://discord.gg/9zX7nbv3">Discord</a></span>
     </footer>
   </body>
 </html>
