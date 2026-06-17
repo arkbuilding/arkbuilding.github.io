@@ -398,12 +398,13 @@
         display: grid;
         grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
         gap: 26px;
-        align-items: start;
+        align-items: stretch;
         margin: 0 auto;
         text-align: left;
       }
 
       .showcase-copy {
+        height: 100%;
         padding: 34px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -472,34 +473,83 @@
       }
 
       .shot-wall {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        align-items: start;
+        position: relative;
+        min-height: 100%;
+        overflow: hidden;
+        border-radius: 16px;
       }
 
       .phone-shot {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        height: 100%;
+        margin: 0;
         overflow: hidden;
         border: 1px solid rgba(180, 87, 128, 0.2);
         border-radius: 16px;
         background: #fff;
         box-shadow: var(--shadow);
+        opacity: 0;
+        transform: translateX(18px);
+        animation: shotCarousel 20s infinite;
       }
 
-      .phone-shot.primary {
-        grid-row: auto;
+      .phone-shot:nth-child(2) {
+        animation-delay: 5s;
+      }
+
+      .phone-shot:nth-child(3) {
+        animation-delay: 10s;
+      }
+
+      .phone-shot:nth-child(4) {
+        animation-delay: 15s;
       }
 
       .phone-shot img {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
+        min-height: 0;
+        object-fit: cover;
+        object-position: top center;
       }
 
       .phone-shot.crop img {
-        height: 360px;
-        object-fit: cover;
-        object-position: top center;
+        height: 100%;
+      }
+
+      @keyframes shotCarousel {
+        0%,
+        20% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        25%,
+        95% {
+          opacity: 0;
+          transform: translateX(-18px);
+        }
+
+        96%,
+        100% {
+          opacity: 0;
+          transform: translateX(18px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .phone-shot {
+          animation: none;
+        }
+
+        .phone-shot:first-child {
+          opacity: 1;
+          transform: none;
+        }
       }
 
       .shot-caption {
@@ -601,6 +651,15 @@
         margin: 0;
         color: var(--muted);
         font-size: 15px;
+      }
+
+      .feedback-panel {
+        margin-top: 18px;
+      }
+
+      .next-copy {
+        max-width: 680px;
+        margin: 0 auto;
       }
 
       .intent-panel {
@@ -904,26 +963,20 @@
 
         .shot-wall {
           order: -1;
-          display: flex;
-          gap: 12px;
-          margin: 0 -18px;
-          overflow-x: auto;
-          padding: 0 18px 10px;
-          scroll-snap-type: x mandatory;
+          height: 540px;
+          margin: 0;
+          overflow: hidden;
+          padding: 0;
         }
 
         .phone-shot {
-          min-width: 258px;
+          width: 100%;
+          min-width: 0;
           border-radius: 24px;
-          scroll-snap-align: center;
-        }
-
-        .phone-shot.primary {
-          grid-row: auto;
         }
 
         .phone-shot.crop img {
-          height: auto;
+          height: 100%;
         }
 
         .sections,
@@ -1168,39 +1221,33 @@
 
       <section class="sections" id="next">
         <div class="section-inner">
-          <div class="section-heading">
-            <span class="kicker">接下来</span>
+          <section class="showcase-copy next-copy" aria-label="MoniMoni 接下来可能会做的功能">
             <h2>接下来可能会做：</h2>
             <p>这些还在计划里，后续会根据内测反馈继续调整。</p>
-          </div>
-          <div class="intent-panel">
-            <aside class="keyword-box">
-              <strong>可能会做</strong>
-              <ul class="keyword-list" aria-label="MoniMoni 接下来可能会做的功能">
-                <li>接入语音</li>
-                <li>添加角色头像</li>
-                <li>长期记忆</li>
-                <li>...</li>
-              </ul>
-            </aside>
-            <div class="qa-box" id="feedback">
-              <article class="qa-item">
-                <h3>任何你想表达的内容，都可以通过App内的反馈入口发送</h3>
-                <p>内测阶段非常需要大家告诉我哪里不好用。</p>
-              </article>
-              <article class="qa-item">
-                <h3>夸夸（很需要大家的鼓励🥺</h3>
-                <p>如果你愿意试试看，并告诉我哪里喜欢、哪里不够顺手，非常感谢！🫶</p>
-              </article>
-              <article class="qa-item">
-                <h3>bug（看到就会立刻修！</h3>
-                <p>遇到 bug、功能不完善或界面调整问题，都可以通过 App 内反馈入口发来。</p>
-              </article>
-              <article class="qa-item">
-                <h3>功能许愿 🫧</h3>
-                <p>可能没有时间一条一条回复，但保证会认真阅读每一条反馈🫰</p>
-              </article>
-            </div>
+            <ul class="benefit-list">
+              <li><i>1</i><span>接入语音</span></li>
+              <li><i>2</i><span>添加角色头像</span></li>
+              <li><i>3</i><span>长期记忆</span></li>
+              <li><i>4</i><span>...</span></li>
+            </ul>
+          </section>
+          <div class="qa-box feedback-panel" id="feedback">
+            <article class="qa-item">
+              <h3>任何你想表达的内容，都可以通过App内的反馈入口发送</h3>
+              <p>内测阶段非常需要大家告诉我哪里不好用。</p>
+            </article>
+            <article class="qa-item">
+              <h3>夸夸（很需要大家的鼓励🥺</h3>
+              <p>如果你愿意试试看，并告诉我哪里喜欢、哪里不够顺手，非常感谢！🫶</p>
+            </article>
+            <article class="qa-item">
+              <h3>bug（看到就会立刻修！</h3>
+              <p>遇到 bug、功能不完善或界面调整问题，都可以通过 App 内反馈入口发来。</p>
+            </article>
+            <article class="qa-item">
+              <h3>功能许愿 🫧</h3>
+              <p>可能没有时间一条一条回复，但保证会认真阅读每一条反馈🫰</p>
+            </article>
           </div>
         </div>
       </section>
