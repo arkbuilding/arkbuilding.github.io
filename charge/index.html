@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>快速接入API，立刻启动MoniMoni</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand" href="#top" aria-label="MoniMoni home">
+        <span class="brand-mark">M</span>
+        <span>MoniMoni</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#plans">购买</a>
+        <a href="#result">API Key</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow">API ACCESS / NO LOGIN</p>
+          <h1>快速接入API，立刻启动MoniMoni</h1>
+          <p class="hero-text">
+            选择充值金额，付款成功后即可获取 API key。无需注册账号，
+            复制 model、API base URL 和 API key 后即可开始调用。
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-label="API access preview">
+          <div class="orbit">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="credential-card">
+            <div class="card-topline">
+              <span>LIVE RESPONSE</span>
+              <span class="status-dot"></span>
+            </div>
+            <div class="code-lines" aria-hidden="true">
+              <span class="line long"></span>
+              <span class="line short"></span>
+              <span class="line medium"></span>
+            </div>
+            <dl>
+              <div>
+                <dt>model</dt>
+                <dd>moni-chat</dd>
+              </div>
+              <div>
+                <dt>base_url</dt>
+                <dd>https://api.monimoni.ai/v1</dd>
+              </div>
+              <div>
+                <dt>api_key</dt>
+                <dd>mk_live_••••••••••••</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad plans-section" id="plans">
+        <div class="section-heading">
+          <p class="eyebrow">RECHARGE</p>
+          <h2>Choose an amount</h2>
+        </div>
+
+        <div class="amount-grid" aria-label="Recharge amounts">
+          <button class="amount-card is-selected" type="button" data-amount="2" aria-pressed="true">
+            <span class="plan-head">
+              <span class="plan-kicker">✦ Trial</span>
+              <span class="plan-tag">New</span>
+            </span>
+            <strong>$2</strong>
+            <span>适合先试一下接口是否符合需求。</span>
+          </button>
+
+          <button class="amount-card" type="button" data-amount="10" aria-pressed="false">
+            <span class="plan-head">
+              <span class="plan-kicker">✦ Light</span>
+              <span class="plan-tag">Start</span>
+            </span>
+            <strong>$10</strong>
+            <span>适合快速试用和少量调用。</span>
+          </button>
+
+          <button class="amount-card" type="button" data-amount="50" aria-pressed="false">
+            <span class="plan-head">
+              <span class="plan-kicker">✦ Plus</span>
+              <span class="plan-tag">More</span>
+            </span>
+            <strong>$50</strong>
+            <span>适合更高频率的 API 请求。</span>
+          </button>
+        </div>
+
+        <div class="custom-recharge">
+          <label for="custom-amount">
+            <span>自定义充值金额</span>
+            <input id="custom-amount" name="custom-amount" type="number" min="1" step="1" inputmode="numeric" placeholder="输入金额">
+          </label>
+          <div class="checkout-summary">
+            <p>当前选择：<strong data-selected-amount>$2</strong></p>
+            <button class="button button-primary" type="button" data-buy-selected>购买并获取 API Key</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad result-section" id="result" aria-live="polite">
+        <div class="result-shell" data-empty="true">
+          <div class="result-copy">
+            <p class="eyebrow">API KEY</p>
+            <h2 data-result-title>购买后这里会展示 API Key</h2>
+            <p data-result-note>
+              完成购买后，请复制并妥善保存以下信息。
+            </p>
+          </div>
+
+          <div class="result-panel" aria-label="Generated API details">
+            <div class="panel-toolbar">
+              <span data-selected-plan>未完成购买</span>
+              <span class="panel-state" data-panel-state>WAITING</span>
+            </div>
+
+            <dl class="api-details">
+              <div>
+                <dt>Model</dt>
+                <dd data-model-name>---</dd>
+              </div>
+              <div>
+                <dt>API Base URL</dt>
+                <dd data-base-url>---</dd>
+              </div>
+              <div class="key-row">
+                <dt>API Key</dt>
+                <dd>
+                  <code data-api-key>点击购买后生成</code>
+                  <button class="icon-button" type="button" data-copy-key disabled aria-label="复制 API Key">
+                    Copy
+                  </button>
+                </dd>
+              </div>
+            </dl>
+
+            <p class="storage-warning">
+              提醒：API key 仅保存在当前浏览器本地。清除浏览器数据后，本页面将无法恢复。
+            </p>
+            <div class="panel-actions">
+              <button class="button button-primary" type="button" data-copy-all disabled>复制全部信息</button>
+              <button class="button button-ghost" type="button" data-clear-key>清除本地 Key</button>
+            </div>
+            <p class="feedback" data-feedback role="status"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>MoniMoni</p>
+      <p>No account required.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
