@@ -1,100 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy</title>
-<style>
-body {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.7;
-    color: #333;
-}
-h1 {
-    text-align: center;
-}
-h2 {
-    margin-top: 32px;
-}
-.meta {
-    color: #666;
-    margin-bottom: 30px;
-}
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy - MoniMoni</title>
+    <meta name="description" content="Privacy Policy for MoniMoni." />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fff7fb;
+        --card: #fffefd;
+        --ink: #302535;
+        --muted: #766877;
+        --line: rgba(180, 87, 128, 0.22);
+        --accent: #d95783;
+      }
 
-<h1>Privacy Policy</h1>
+      * {
+        box-sizing: border-box;
+      }
 
-<div class="meta">
-    <p>Last Updated: June 12, 2026</p>
-    <p>Effective Date: June 12, 2026</p>
-</div>
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 253, 0.94), rgba(255, 247, 251, 0.98)),
+          repeating-linear-gradient(0deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
+          repeating-linear-gradient(90deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
+          var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.68;
+      }
 
-<h2>1. Local Data</h2>
-<p>
-Your App data is stored locally on your device.
-</p>
-<p>
-We do not use your personal profiles, scripts, stories, image selections, or API configurations.
-</p>
+      main {
+        width: min(100% - 32px, 880px);
+        margin: 0 auto;
+        padding: 64px 0;
+      }
 
-<h2>2. Local Storage</h2>
-<p>
-Locally stored data may include personal profiles, scripts and stories, image selections, API endpoints, model names, and API keys.
-</p>
-<p>
-On mobile devices, API keys are stored using the system's secure storage mechanisms. In the web preview environment, API keys are only stored during the current browser session.
-</p>
+      article {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 22px 60px rgba(194, 88, 130, 0.12);
+        padding: clamp(24px, 5vw, 56px);
+      }
 
-<h2>3. Device Permissions</h2>
-<p>
-Photo Library or Media Library permissions are used solely to allow you to select avatars, wallpapers, card backgrounds, widget photos, or script cover images.
-</p>
-<p>
-File access permissions are used solely to allow you to select script files and read their contents on your device.
-</p>
-<p>
-These permissions are only used to perform actions that you explicitly initiate within the App.
-</p>
+      .brand {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
 
-<h2>4. Third-Party APIs</h2>
-<p>
-When you choose to use third-party API features, related content may be transmitted from your device to the API service that you configure.
-</p>
-<p>
-The handling of such data is governed by the terms and privacy policies of the respective third-party service.
-</p>
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(36px, 6vw, 56px);
+        line-height: 1.05;
+      }
 
-<h2>5. Your Control</h2>
-<p>
-You may view or modify your profiles, script settings, and story content within the App.
-</p>
-<p>
-You may delete local scripts, story copies, or remove API configurations at any time.
-</p>
-<p>
-You may also clear App data through your device settings. Once deleted or uninstalled, MoniMoni cannot recover any locally stored data.
-</p>
+      .updated {
+        margin: 0 0 34px;
+        color: var(--muted);
+      }
 
-<h2>6. Protection of Minors</h2>
-<p>
-MoniMoni is not intended to provide services directly to children under the age of 14.
-</p>
-<p>
-Minors should use the service only with the consent and guidance of a parent or legal guardian.
-</p>
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 22px;
+        line-height: 1.2;
+      }
 
-<h2>7. Updates and Contact</h2>
-<p>
-The latest version of this Privacy Policy will be made available within the App.
-</p>
-<p>
-If you have any questions, suggestions, or requests regarding this Privacy Policy, please contact us through the "Settings → Feedback & Wishes" section within the App.
-</p>
+      p,
+      li {
+        color: var(--muted);
+      }
 
-</body>
+      ul {
+        padding-left: 22px;
+      }
+
+      a {
+        color: var(--accent);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p class="brand">MoniMoni</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last Updated: July 1, 2026</p>
+
+        <p>
+          This Privacy Policy explains how MoniMoni ("MoniMoni," "we," "us," or
+          "our") handles information when you use our website, mobile
+          applications, and related services (collectively, the "Services").
+        </p>
+
+        <h2>1. Information We Collect</h2>
+        <p>
+          MoniMoni is designed primarily around local creation and play. The
+          content you create or import, such as profiles, simulator scripts,
+          story copies, character settings, image selections, wallpapers,
+          message styles, and API configurations, is generally stored on your
+          own device.
+        </p>
+        <p>Depending on how you use the Services, information may include:</p>
+        <ul>
+          <li>scripts, prompts, story content, character settings, and gameplay choices;</li>
+          <li>profile names, role information, avatars, wallpapers, and cover images you choose;</li>
+          <li>API endpoints, model names, API keys, and related model settings you configure;</li>
+          <li>feedback you send to us, including your email address, Threads ID, message content, timestamp, browser or device information, and referring page; and</li>
+          <li>basic technical information needed to operate, protect, and improve the Services.</li>
+        </ul>
+
+        <h2>2. Local Storage and API Keys</h2>
+        <p>
+          App data is stored locally on your device whenever possible. On mobile
+          devices, API keys may be stored using the system's secure storage
+          mechanisms. In a web preview or browser environment, API configuration
+          may be stored in browser storage for the current experience.
+        </p>
+        <p>
+          You are responsible for the third-party API keys you choose to enter.
+          Please do not share your API keys publicly or include secrets in
+          scripts, feedback, or screenshots.
+        </p>
+
+        <h2>3. How We Use Information</h2>
+        <p>We use information to:</p>
+        <ul>
+          <li>provide simulator import, parsing, customization, and story generation features;</li>
+          <li>save local scripts, story copies, profiles, visual settings, and API settings;</li>
+          <li>respond to feedback, bug reports, feature requests, and support messages;</li>
+          <li>maintain security, troubleshoot issues, and prevent abuse; and</li>
+          <li>comply with applicable legal obligations.</li>
+        </ul>
+        <p>
+          We do not sell your personal information.
+        </p>
+
+        <h2>4. Third-Party APIs and Services</h2>
+        <p>
+          When you choose to use third-party API features, content that you
+          submit may be sent from your device or from the Services to the API
+          provider you configure, such as a model or infrastructure provider.
+          That provider's own terms and privacy policy will apply to its
+          processing of your information.
+        </p>
+        <p>
+          The Services may also use hosting, analytics, feedback, storage, or
+          other service providers to operate the product. These providers may
+          process information only as needed to provide their services to us.
+        </p>
+
+        <h2>5. Device Permissions</h2>
+        <p>
+          Photo Library, Media Library, or file access permissions are used only
+          for actions you choose to take, such as selecting avatars, wallpapers,
+          card backgrounds, widget photos, script cover images, or script files.
+        </p>
+
+        <h2>6. Your Choices and Control</h2>
+        <p>
+          You may view, modify, or delete local profiles, scripts, story copies,
+          image selections, and API configurations inside the App where those
+          controls are available. You may also clear local App data through your
+          device or browser settings. Once local data is deleted or the App is
+          uninstalled, MoniMoni may not be able to recover it.
+        </p>
+        <p>
+          To request help with privacy questions or support data, contact us at
+          <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a>.
+        </p>
+
+        <h2>7. Data Retention</h2>
+        <p>
+          Locally stored content remains on your device until you delete it,
+          clear App data, or uninstall the App. Feedback and support messages
+          may be retained for as long as reasonably necessary to respond,
+          improve the Services, maintain security, and comply with legal
+          obligations.
+        </p>
+
+        <h2>8. Protection of Minors</h2>
+        <p>
+          MoniMoni is not intended to provide services directly to children
+          under the age of 14. Minors should use the Services only with the
+          consent and guidance of a parent or legal guardian.
+        </p>
+
+        <h2>9. Links to Third-Party Websites</h2>
+        <p>
+          The Services may link to third-party websites, platforms, or API
+          providers. We are not responsible for the privacy practices of those
+          third parties. Please review their policies before submitting
+          information to them.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. The latest
+          version will be posted in the App or on our website, and the "Last
+          Updated" date will show when it was most recently changed.
+        </p>
+
+        <h2>11. Contact Us</h2>
+        <p>
+          If you have any questions, requests, or concerns about this Privacy
+          Policy, please contact us at
+          <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a>.
+        </p>
+      </article>
+    </main>
+  </body>
 </html>
