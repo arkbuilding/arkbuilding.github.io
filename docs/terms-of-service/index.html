@@ -1,105 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service</title>
-<style>
-body {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.7;
-    color: #333;
-}
-h1 {
-    text-align: center;
-}
-h2 {
-    margin-top: 32px;
-}
-.meta {
-    color: #666;
-    margin-bottom: 30px;
-}
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Service - MoniMoni</title>
+    <meta name="description" content="Terms of Service for MoniMoni." />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fff7fb;
+        --card: #fffefd;
+        --ink: #302535;
+        --muted: #766877;
+        --line: rgba(180, 87, 128, 0.22);
+        --accent: #d95783;
+      }
 
-<h1>Terms of Service</h1>
+      * {
+        box-sizing: border-box;
+      }
 
-<div class="meta">
-    <p>Last Updated: June 12, 2026</p>
-    <p>Effective Date: June 12, 2026</p>
-</div>
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 253, 0.94), rgba(255, 247, 251, 0.98)),
+          repeating-linear-gradient(0deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
+          repeating-linear-gradient(90deg, rgba(255, 215, 229, 0.42) 0 1px, transparent 1px 38px),
+          var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.68;
+      }
 
-<h2>1. Scope</h2>
-<p>
-Welcome to MoniMoni. These Terms apply to your download, installation, access, and use of the MoniMoni App.
-</p>
-<p>
-By using MoniMoni, you acknowledge that you have read, understood, and agreed to these Terms. If you do not agree, please stop using the App.
-</p>
+      main {
+        width: min(100% - 32px, 880px);
+        margin: 0 auto;
+        padding: 64px 0;
+      }
 
-<h2>2. Services</h2>
-<p>
-MoniMoni is a local-first interactive storytelling and roleplay tool.
-</p>
-<p>
-You may save personal profiles, import or edit scripts, create story copies, and use AI-assisted parsing or continuation features after configuring an API.
-</p>
+      article {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 22px 60px rgba(194, 88, 130, 0.12);
+        padding: clamp(24px, 5vw, 56px);
+      }
 
-<h2>3. Local Data</h2>
-<p>
-Your profiles, scripts, story copies, history nodes, image selections, API endpoints, model names, and API keys are stored locally on your device.
-</p>
-<p>
-Your content remains under your control. We do not use your content.
-</p>
+      .brand {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
 
-<h2>4. Third-Party APIs</h2>
-<p>
-When you choose to use third-party API features, related content may be transmitted from your device to the API service you configure.
-</p>
-<p>
-The handling of such data is governed by the terms and privacy policies of the respective third-party service.
-</p>
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(36px, 6vw, 56px);
+        line-height: 1.05;
+      }
 
-<h2>5. Content Ownership</h2>
-<p>
-Any scripts, characters, stories, images, or other content that you import, create, or generate in MoniMoni remain owned by you or the original rights holder.
-</p>
-<p>
-MoniMoni does not claim ownership of your content.
-</p>
+      .updated {
+        margin: 0 0 34px;
+        color: var(--muted);
+      }
 
-<h2>6. User Responsibility</h2>
-<p>
-You are responsible for ensuring that your use of content is lawful and does not infringe the rights of others.
-</p>
-<p>
-You must not use the service to generate, store, or distribute unlawful, infringing, fraudulent, malicious, violent, hateful, pornographic, discriminatory, harmful to minors, or otherwise inappropriate content.
-</p>
-<p>
-AI-generated outputs may be inaccurate, incomplete, or unexpected. You should independently review all AI-generated content and should not rely on it as professional advice, including legal or medical advice.
-</p>
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 22px;
+        line-height: 1.2;
+      }
 
-<h2>7. Data Retention</h2>
-<p>
-If you clear App data, uninstall the App, or manually delete content, MoniMoni cannot recover that locally stored data.
-</p>
-<p>
-Please keep your device, API keys, model settings, and important content secure.
-</p>
+      p,
+      li {
+        color: var(--muted);
+      }
 
-<h2>8. Updates and Contact</h2>
-<p>
-The latest version of these Terms will be made available within the App.
-</p>
-<p>
-If you have any questions about these Terms or the service, please contact us through the "Settings → Feedback & Wishes" section in the App.
-</p>
+      ul {
+        padding-left: 22px;
+      }
 
-</body>
+      a {
+        color: var(--accent);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p class="brand">MoniMoni</p>
+        <h1>Terms of Service</h1>
+        <p class="updated">Effective Date: July 1, 2026<br />Last Updated: July 1, 2026</p>
+
+        <p>
+          Welcome to MoniMoni. These Terms of Service ("Terms") govern your
+          access to and use of the MoniMoni website, mobile applications, and
+          related products, features, and services (collectively, the
+          "Services"). By accessing or using the Services, you agree to these
+          Terms. If you do not agree, please do not use the Services.
+        </p>
+
+        <h2>1. Privacy</h2>
+        <p>
+          Please review our Privacy Policy to understand how MoniMoni handles
+          information. The Privacy Policy is incorporated into these Terms by
+          reference.
+        </p>
+
+        <h2>2. Eligibility</h2>
+        <p>
+          You must be able to form a binding agreement under the laws that apply
+          to you. MoniMoni is not intended to provide services directly to
+          children under the age of 14. Minors should use the Services only with
+          the consent and guidance of a parent or legal guardian.
+        </p>
+
+        <h2>3. Using MoniMoni</h2>
+        <p>
+          MoniMoni lets you import, configure, and play simulator scripts and
+          interactive story content. You are responsible for the scripts,
+          prompts, character settings, images, API configurations, and other
+          content you create, import, submit, or use with the Services.
+        </p>
+        <p>
+          You agree to use the Services only for lawful, personal, and
+          non-commercial purposes, unless we separately agree otherwise in
+          writing.
+        </p>
+
+        <h2>4. Accounts, Local Data, and API Keys</h2>
+        <p>
+          Some features may store data locally on your device or in your browser,
+          including simulator scripts, story copies, settings, model names, API
+          endpoints, and API keys. You are responsible for keeping your device,
+          API keys, and access credentials secure.
+        </p>
+        <p>
+          If you choose to use a third-party API key or endpoint, you are
+          responsible for your relationship with that provider, including
+          payments, usage limits, model behavior, and compliance with that
+          provider's terms.
+        </p>
+
+        <h2>5. Acceptable Use</h2>
+        <p>You agree not to use the Services in a way that:</p>
+        <ul>
+          <li>violates any applicable law or regulation;</li>
+          <li>infringes or violates the rights of another person or entity;</li>
+          <li>contains or promotes unlawful, abusive, harassing, hateful, exploitative, or deceptive content;</li>
+          <li>exploits, harms, or attempts to exploit or harm minors;</li>
+          <li>attempts to access, collect, or use another person's private information without permission;</li>
+          <li>interferes with, overloads, reverse engineers, scrapes, or disrupts the Services; or</li>
+          <li>uses the Services to distribute spam, malware, or automated abuse.</li>
+        </ul>
+
+        <h2>6. User Content</h2>
+        <p>
+          "User Content" means anything you submit, import, upload, generate,
+          store, or otherwise provide through the Services, including scripts,
+          story text, prompts, character descriptions, images, feedback, and
+          settings.
+        </p>
+        <p>
+          You keep ownership of your User Content. You grant MoniMoni a limited,
+          non-exclusive license to process, display, transmit, and use User
+          Content as needed to operate, maintain, protect, and improve the
+          Services and to provide the features you request.
+        </p>
+        <p>
+          You represent that you have the necessary rights to use and submit
+          your User Content, and that your User Content complies with these
+          Terms and applicable law.
+        </p>
+
+        <h2>7. AI Features and Generated Content</h2>
+        <p>
+          MoniMoni may use AI features to parse scripts, generate options,
+          continue stories, create messages, or otherwise support interactive
+          gameplay. AI outputs may be inaccurate, incomplete, unexpected, or
+          offensive. You are responsible for reviewing and deciding how to use
+          any generated content.
+        </p>
+        <p>
+          We do not guarantee that AI-generated content will be accurate,
+          suitable for your purpose, unique, or free from third-party rights.
+        </p>
+
+        <h2>8. Third-Party Services</h2>
+        <p>
+          The Services may link to or integrate with third-party websites,
+          model providers, API services, app stores, payment processors, or
+          community platforms. We do not control those third parties and are not
+          responsible for their content, availability, security, pricing,
+          policies, or practices.
+        </p>
+
+        <h2>9. Payments and Purchases</h2>
+        <p>
+          MoniMoni may offer paid features, subscriptions, in-app purchases, or
+          paid access in the future. Payment terms shown at the time of purchase
+          will become part of these Terms. App store purchases, refunds, billing,
+          and cancellations may be handled by the relevant app store or payment
+          provider under its own terms.
+        </p>
+        <p>
+          Third-party API usage fees, token costs, subscriptions, or credits are
+          charged by the relevant provider and are not controlled by MoniMoni
+          unless expressly stated.
+        </p>
+
+        <h2>10. Changes to the Services or Terms</h2>
+        <p>
+          We may update, suspend, discontinue, or change any part of the
+          Services at any time. We may also update these Terms from time to time.
+          If we make material changes, we will provide notice by posting the
+          updated Terms in the App or on our website. Continued use of the
+          Services after changes become effective means you accept the updated
+          Terms.
+        </p>
+
+        <h2>11. Termination</h2>
+        <p>
+          You may stop using the Services at any time. We may suspend or
+          terminate your access to the Services if we believe you have violated
+          these Terms, created risk for other users, or used the Services in a
+          way that may harm MoniMoni, users, or third parties.
+        </p>
+        <p>
+          Because much of the App experience may be stored locally on your
+          device, you are responsible for exporting or backing up any content you
+          wish to keep.
+        </p>
+
+        <h2>12. Ownership</h2>
+        <p>
+          MoniMoni and its software, design, branding, interfaces, and related
+          materials are owned by us or our licensors and are protected by
+          intellectual property laws. Except for the limited right to use the
+          Services under these Terms, we do not grant you any ownership or
+          license to our intellectual property.
+        </p>
+
+        <h2>13. Warranty Disclaimer</h2>
+        <p>
+          The Services are provided on an "as is" and "as available" basis. To
+          the fullest extent permitted by law, we disclaim all warranties,
+          whether express, implied, or statutory, including warranties of
+          merchantability, fitness for a particular purpose, non-infringement,
+          availability, accuracy, and error-free operation.
+        </p>
+
+        <h2>14. Limitation of Liability</h2>
+        <p>
+          To the fullest extent permitted by law, MoniMoni will not be liable
+          for indirect, incidental, special, consequential, exemplary, or
+          punitive damages, or for loss of profits, data, goodwill, or business,
+          arising out of or related to your use of the Services.
+        </p>
+
+        <h2>15. Indemnity</h2>
+        <p>
+          You agree to defend, indemnify, and hold harmless MoniMoni from and
+          against claims, liabilities, damages, losses, and expenses arising from
+          your use of the Services, your User Content, your violation of these
+          Terms, or your violation of any rights or laws.
+        </p>
+
+        <h2>16. Contact</h2>
+        <p>
+          If you have any questions, comments, or concerns about these Terms or
+          the Services, please contact us at
+          <a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a>.
+        </p>
+      </article>
+    </main>
+  </body>
 </html>
