@@ -304,6 +304,104 @@
         box-shadow: 0 12px 24px rgba(102, 199, 173, 0.2);
       }
 
+      .wechat-guide {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(48, 37, 53, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+
+      .wechat-guide.is-open {
+        display: flex;
+      }
+
+      .wechat-guide-card {
+        width: min(100%, 420px);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fffefd;
+        box-shadow: var(--shadow);
+        padding: 24px;
+        text-align: left;
+      }
+
+      .wechat-guide-card h2 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .wechat-guide-card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+      }
+
+      .wechat-guide-steps {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .wechat-guide-steps li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 10px;
+        align-items: start;
+        color: #55445b;
+        font-size: 15px;
+      }
+
+      .wechat-guide-steps i {
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        border-radius: 7px;
+        background: #ffe1ed;
+        color: var(--pink-strong);
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .wechat-guide-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .wechat-guide-actions button,
+      .wechat-guide-actions a {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius);
+        padding: 0 14px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .wechat-guide-actions .primary {
+        border-color: transparent;
+        background: var(--pink-strong);
+        color: #fff;
+      }
+
       .button small {
         display: block;
         color: inherit;
@@ -1072,7 +1170,7 @@
             如果你愿意试试看，并告诉我哪里不好用，非常感谢！🫶
           </p>
           <div class="hero-actions">
-            <a class="button" href="https://apps.apple.com/app/monimoni/id6785735737" aria-label="通过 App Store 下载 MoniMoni iOS 试玩版">
+            <a class="button" href="https://apps.apple.com/app/monimoni/id6785735737" data-appstore-link aria-label="通过 App Store 下载 MoniMoni iOS 试玩版">
               <span class="button-icon" aria-hidden="true"></span>
               <span><small>App Store</small><strong>ios下载</strong></span>
             </a>
@@ -1271,5 +1369,127 @@
       <span>MoniMoni © 2026</span>
       <span>联系邮箱：<a href="mailto:support@monimoniapp.com">support@monimoniapp.com</a> · 作者：<a href="https://www.threads.com/@lelmcc0116">Threads @lelmcc0116</a> · 社区：<a href="https://discord.gg/nzFJ8C8pbG">Discord</a> · <a href="https://monimoniapp.com/docs/terms-of-service">條款與條件</a> · <a href="https://monimoniapp.com/docs/privacy-policy">隱私政策</a></span>
     </footer>
+    <div class="wechat-guide" id="wechatGuide" role="dialog" aria-modal="true" aria-labelledby="wechatGuideTitle">
+      <div class="wechat-guide-card">
+        <h2 id="wechatGuideTitle">请在浏览器中打开</h2>
+        <p>如果刚才没有自动跳转到 App Store，请用系统浏览器打开本页面后下载。</p>
+        <ul class="wechat-guide-steps">
+          <li><i>1</i><span>点击微信右上角「…」</span></li>
+          <li><i>2</i><span>选择「在浏览器打开」或「在 Safari 中打开」</span></li>
+          <li><i>3</i><span>打开后页面会自动尝试跳转到 App Store</span></li>
+        </ul>
+        <div class="wechat-guide-actions">
+          <button class="primary" type="button" id="retryAppStore">再试一次打开 App Store</button>
+          <button type="button" id="copyPageLink">复制网页链接</button>
+          <button type="button" id="closeWechatGuide">我知道了</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var appStoreWebUrl = "https://apps.apple.com/app/monimoni/id6785735737";
+        var appStoreDeepUrl = "itms-apps://itunes.apple.com/app/id6785735737";
+        var ua = window.navigator.userAgent || "";
+        var isWeChat = /MicroMessenger/i.test(ua);
+        var isIOS = /iPad|iPhone|iPod/i.test(ua) || (window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+        var guide = document.getElementById("wechatGuide");
+        var closeButton = document.getElementById("closeWechatGuide");
+        var copyButton = document.getElementById("copyPageLink");
+        var retryButton = document.getElementById("retryAppStore");
+        var appStoreLinks = document.querySelectorAll("[data-appstore-link]");
+
+        function showWechatGuide() {
+          if (!guide) return;
+          guide.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function hideWechatGuide() {
+          if (!guide) return;
+          guide.classList.remove("is-open");
+          document.body.style.overflow = "";
+        }
+
+        function launchAppStore(options) {
+          var fallback = options && options.fallback;
+          var leftPage = false;
+          var markLeftPage = function () {
+            leftPage = true;
+          };
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden) markLeftPage();
+          }, { once: true });
+          window.addEventListener("pagehide", markLeftPage, { once: true });
+          window.addEventListener("blur", markLeftPage, { once: true });
+          window.location.href = appStoreDeepUrl;
+          window.setTimeout(function () {
+            if (leftPage) return;
+            if (fallback === "guide") {
+              showWechatGuide();
+              return;
+            }
+            window.location.href = appStoreWebUrl;
+          }, 1600);
+        }
+
+        appStoreLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            if (isWeChat) {
+              event.preventDefault();
+              launchAppStore({ fallback: "guide" });
+              return;
+            }
+            if (isIOS) {
+              event.preventDefault();
+              launchAppStore();
+            }
+          });
+        });
+
+        if (closeButton) closeButton.addEventListener("click", hideWechatGuide);
+        if (retryButton) {
+          retryButton.addEventListener("click", function () {
+            launchAppStore({ fallback: "web" });
+          });
+        }
+        if (guide) {
+          guide.addEventListener("click", function (event) {
+            if (event.target === guide) hideWechatGuide();
+          });
+        }
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") hideWechatGuide();
+        });
+
+        if (copyButton) {
+          copyButton.addEventListener("click", function () {
+            var pageUrl = window.location.href;
+            if (window.navigator.clipboard && window.navigator.clipboard.writeText) {
+              window.navigator.clipboard.writeText(pageUrl).then(function () {
+                copyButton.textContent = "已复制";
+                window.setTimeout(function () {
+                  copyButton.textContent = "复制网页链接";
+                }, 1600);
+              }).catch(function () {
+                window.prompt("复制下面的链接后，用浏览器打开：", pageUrl);
+              });
+            } else {
+              window.prompt("复制下面的链接后，用浏览器打开：", pageUrl);
+            }
+          });
+        }
+
+        window.addEventListener("load", function () {
+          if (!isIOS || isWeChat) return;
+          try {
+            if (window.sessionStorage.getItem("monimoni-appstore-opened") === "1") return;
+            window.sessionStorage.setItem("monimoni-appstore-opened", "1");
+          } catch (error) {
+            // Ignore storage errors and still allow the App Store attempt.
+          }
+          window.setTimeout(launchAppStore, 700);
+        });
+      })();
+    </script>
   </body>
 </html>
