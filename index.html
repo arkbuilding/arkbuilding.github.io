@@ -298,6 +298,13 @@
         box-shadow: none;
       }
 
+      .button.discord {
+        border-color: rgba(102, 199, 173, 0.38);
+        background: #eefbf6;
+        color: #245f52;
+        box-shadow: 0 12px 24px rgba(102, 199, 173, 0.12);
+      }
+
       .button.mint {
         background: #66c7ad;
         color: #173d35;
@@ -1049,8 +1056,9 @@
           padding: 0 12px;
         }
 
-        .hero .button.ghost {
-          width: min(100%, 320px);
+        .hero .button.ghost,
+        .hero .button.discord {
+          width: calc(50% - 6px);
         }
 
         .note {
@@ -1177,6 +1185,10 @@
             <a class="button secondary" href="https://monimoniapp.com/download/apk" aria-label="下载 MoniMoni Android APK">
               <span class="button-icon" aria-hidden="true">▶</span>
               <span><small>APK</small><strong>apk下载</strong></span>
+            </a>
+            <a class="button discord" href="https://discord.gg/nzFJ8C8pbG" aria-label="加入 MoniMoni Discord 社区">
+              <span class="button-icon" aria-hidden="true">#</span>
+              <span><small>Community</small><strong>加入Discord</strong></span>
             </a>
             <a class="button ghost" href="#buy-api" aria-label="查看 API Key 购买渠道">
               <span class="button-icon" aria-hidden="true">♡</span>
