@@ -23,6 +23,8 @@
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://monimoniapp.com/" />
+    <link rel="icon" type="image/png" href="assets/moniicon.png" />
+    <link rel="apple-touch-icon" href="assets/moniicon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MoniMoni" />
     <meta property="og:title" content="MoniMoni - App 下載與 API Key" />
@@ -218,22 +220,21 @@
       .brand-icon {
         width: 34px;
         height: 34px;
-        position: relative;
         flex: 0 0 auto;
         display: grid;
         place-items: center;
         border: 1px solid var(--line-strong);
         border-radius: 8px;
-        background: linear-gradient(135deg, #fff, #ffe1ed);
+        background: #fff;
         box-shadow: 0 8px 18px rgba(217, 87, 131, 0.18);
+        overflow: hidden;
       }
 
-      .brand-icon::before {
-        content: "♡";
-        color: var(--pink-strong);
-        font-size: 19px;
-        font-weight: 900;
-        line-height: 1;
+      .brand-icon img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .nav-links,
@@ -427,7 +428,6 @@
         font-weight: 760;
         line-height: 1;
         opacity: 0.72;
-        text-transform: uppercase;
       }
 
       .button strong {
@@ -505,15 +505,22 @@
       }
 
       .hero-actions {
-        width: min(100%, 620px);
+        width: min(100%, 610px);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 24px;
+        margin-bottom: 28px;
+        padding: 10px;
+        border: 1px solid rgba(180, 87, 128, 0.18);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow: 0 18px 44px rgba(217, 87, 131, 0.11);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
       }
 
       .store-actions,
@@ -526,20 +533,31 @@
       }
 
       .store-actions .button {
-        min-width: 190px;
-        min-height: 48px;
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 50px;
+        border-radius: 12px;
       }
 
       .utility-actions {
-        gap: 9px;
+        gap: 6px;
       }
 
       .utility-actions .button {
-        min-width: 124px;
-        min-height: 40px;
-        padding: 0 15px;
-        border-color: var(--line-strong);
+        min-width: 0;
+        min-height: 34px;
+        padding: 0 12px;
+        border-color: transparent;
+        border-radius: 999px;
+        background: transparent;
+        color: #695569;
         box-shadow: none;
+        font-weight: 760;
+      }
+
+      .utility-actions .button:hover {
+        background: rgba(255, 241, 247, 0.82);
+        color: var(--ink);
       }
 
       .utility-actions .button small {
@@ -548,13 +566,13 @@
 
       .utility-actions .button strong {
         margin-top: 0;
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .utility-actions .button-icon {
-        width: 18px;
-        height: 18px;
-        font-size: 15px;
+        width: 16px;
+        height: 16px;
+        font-size: 14px;
       }
 
       .note {
@@ -1209,7 +1227,7 @@
     <header class="site-header" aria-label="官網導覽" data-i18n-attr="aria-label:aria.header">
       <div class="nav-shell">
         <a class="brand" href="#top" aria-label="MoniMoni 首頁" data-i18n-attr="aria-label:aria.home">
-          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-icon" aria-hidden="true"><img src="assets/moniicon.png" alt="" /></span>
           <span>MoniMoni</span>
         </a>
         <nav class="nav-links" aria-label="主要連結" data-i18n-attr="aria-label:aria.main">
@@ -1252,17 +1270,13 @@
               </a>
             </div>
             <div class="utility-actions" aria-label="其他入口" data-i18n-attr="aria-label:aria.utilityActions">
-              <a class="button secondary" href="https://monimoniapp.com/download/apk" aria-label="下載 MoniMoni Android APK" data-i18n-attr="aria-label:aria.apk">
-                <span class="button-icon" aria-hidden="true">↓</span>
-                <span><small>APK</small><strong data-i18n="button.apk">APK下載</strong></span>
-              </a>
               <a class="button discord" href="https://discord.gg/nzFJ8C8pbG" aria-label="加入 MoniMoni Discord 社群" data-i18n-attr="aria-label:aria.discord">
                 <span class="button-icon" aria-hidden="true">#</span>
                 <span><small>Community</small><strong data-i18n="button.discord">加入Discord</strong></span>
               </a>
-              <a class="button ghost" href="#buy-api" aria-label="查看 API Key 購買管道" data-i18n-attr="aria-label:aria.apiButton">
-                <span class="button-icon" aria-hidden="true">♡</span>
-                <span><small>API Key</small><strong data-i18n="button.api">取得API Key</strong></span>
+              <a class="button secondary" href="https://monimoniapp.com/download/apk" aria-label="下載 MoniMoni Android APK" data-i18n-attr="aria-label:aria.apk">
+                <span class="button-icon" aria-hidden="true">↓</span>
+                <span><small>APK</small><strong data-i18n="button.apk">APK下載</strong></span>
               </a>
             </div>
           </div>
