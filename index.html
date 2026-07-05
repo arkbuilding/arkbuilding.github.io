@@ -19,7 +19,7 @@
     />
     <meta
       name="keywords"
-      content="MoniMoni,iOS下載,APK下載,取得API Key,模擬器文件,自訂配置劇本,特殊玩法,數值,論壇,訊息,長期記憶"
+      content="MoniMoni,App Store,Google Play,iOS下載,Android下載,APK下載,取得API Key,模擬器文件,自訂配置劇本,特殊玩法,數值,論壇,訊息,長期記憶"
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://monimoniapp.com/" />
@@ -28,7 +28,7 @@
     <meta property="og:title" content="MoniMoni - App 下載與 API Key" />
     <meta
       property="og:description"
-      content="MoniMoni 是一個仍在開發中的 App，支援 iOS 下載、APK 下載和取得 API Key。"
+      content="MoniMoni 是一個仍在開發中的 App，支援 App Store、Google Play、APK 下載和取得 API Key。"
     />
     <meta property="og:url" content="https://monimoniapp.com/" />
     <meta name="twitter:card" content="summary" />
@@ -41,10 +41,15 @@
         "operatingSystem": "iOS, Android",
         "description": "MoniMoni 是一個仍在開發中的 App，支援匯入並解析模擬器文件、自訂配置劇本、特殊玩法、建立新副本、更換背景圖片和訊息樣式。",
         "url": "https://monimoniapp.com/",
-        "downloadUrl": "https://monimoniapp.com/download/apk",
+        "downloadUrl": [
+          "https://apps.apple.com/app/monimoni/id6785735737",
+          "https://play.google.com/store/apps/details?id=com.runtrigger.monimoni",
+          "https://monimoniapp.com/download/apk"
+        ],
         "sameAs": [
           "https://www.threads.com/@lelmcc0116",
-          "https://apps.apple.com/app/monimoni/id6785735737"
+          "https://apps.apple.com/app/monimoni/id6785735737",
+          "https://play.google.com/store/apps/details?id=com.runtrigger.monimoni"
         ],
         "offers": {
           "@type": "Offer",
@@ -291,6 +296,12 @@
         box-shadow: 0 12px 24px rgba(255, 196, 82, 0.18);
       }
 
+      .button.google {
+        background: #66c7ad;
+        color: #173d35;
+        box-shadow: 0 12px 24px rgba(102, 199, 173, 0.2);
+      }
+
       .button.ghost {
         border-color: var(--line-strong);
         background: rgba(255, 255, 255, 0.76);
@@ -494,11 +505,56 @@
       }
 
       .hero-actions {
+        width: min(100%, 620px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 24px;
+      }
+
+      .store-actions,
+      .utility-actions {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 12px;
-        margin-bottom: 24px;
+        width: 100%;
+      }
+
+      .store-actions .button {
+        min-width: 190px;
+        min-height: 48px;
+      }
+
+      .utility-actions {
+        gap: 9px;
+      }
+
+      .utility-actions .button {
+        min-width: 124px;
+        min-height: 40px;
+        padding: 0 15px;
+        border-color: var(--line-strong);
+        box-shadow: none;
+      }
+
+      .utility-actions .button small {
+        display: none;
+      }
+
+      .utility-actions .button strong {
+        margin-top: 0;
+        font-size: 14px;
+      }
+
+      .utility-actions .button-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 15px;
       }
 
       .note {
@@ -1046,19 +1102,26 @@
         }
 
         .hero-actions {
+          width: 100%;
           margin-bottom: 18px;
         }
 
-        .hero .button {
+        .store-actions .button {
           width: calc(50% - 6px);
           min-width: 0;
           max-width: none;
           padding: 0 12px;
         }
 
-        .hero .button.ghost,
-        .hero .button.discord {
-          width: calc(50% - 6px);
+        .utility-actions {
+          gap: 8px;
+        }
+
+        .utility-actions .button {
+          flex: 0 1 calc(50% - 4px);
+          width: auto;
+          min-width: 0;
+          padding: 0 10px;
         }
 
         .note {
@@ -1178,22 +1241,30 @@
             如果你願意試試看，並告訴我哪裡不好用，非常感謝！🫶
           </p>
           <div class="hero-actions">
-            <a class="button" href="https://apps.apple.com/app/monimoni/id6785735737" data-appstore-link aria-label="透過 App Store 下載 MoniMoni iOS 試玩版" data-i18n-attr="aria-label:aria.ios">
-              <span class="button-icon" aria-hidden="true"></span>
-              <span><small>App Store</small><strong data-i18n="button.ios">iOS下載</strong></span>
-            </a>
-            <a class="button secondary" href="https://monimoniapp.com/download/apk" aria-label="下載 MoniMoni Android APK" data-i18n-attr="aria-label:aria.apk">
-              <span class="button-icon" aria-hidden="true">▶</span>
-              <span><small>APK</small><strong data-i18n="button.apk">APK下載</strong></span>
-            </a>
-            <a class="button discord" href="https://discord.gg/nzFJ8C8pbG" aria-label="加入 MoniMoni Discord 社群" data-i18n-attr="aria-label:aria.discord">
-              <span class="button-icon" aria-hidden="true">#</span>
-              <span><small>Community</small><strong data-i18n="button.discord">加入Discord</strong></span>
-            </a>
-            <a class="button ghost" href="#buy-api" aria-label="查看 API Key 購買管道" data-i18n-attr="aria-label:aria.apiButton">
-              <span class="button-icon" aria-hidden="true">♡</span>
-              <span><small>API Key</small><strong data-i18n="button.api">取得API Key</strong></span>
-            </a>
+            <div class="store-actions" aria-label="官方下載入口" data-i18n-attr="aria-label:aria.storeActions">
+              <a class="button" href="https://apps.apple.com/app/monimoni/id6785735737" data-appstore-link aria-label="透過 App Store 下載 MoniMoni iOS 試玩版" data-i18n-attr="aria-label:aria.ios">
+                <span class="button-icon" aria-hidden="true"></span>
+                <span><small>iOS</small><strong data-i18n="button.ios">App Store</strong></span>
+              </a>
+              <a class="button google" href="https://play.google.com/store/apps/details?id=com.runtrigger.monimoni" aria-label="透過 Google Play 下載 MoniMoni Android 版" data-i18n-attr="aria-label:aria.google">
+                <span class="button-icon" aria-hidden="true">▶</span>
+                <span><small>Android</small><strong data-i18n="button.google">Google Play</strong></span>
+              </a>
+            </div>
+            <div class="utility-actions" aria-label="其他入口" data-i18n-attr="aria-label:aria.utilityActions">
+              <a class="button secondary" href="https://monimoniapp.com/download/apk" aria-label="下載 MoniMoni Android APK" data-i18n-attr="aria-label:aria.apk">
+                <span class="button-icon" aria-hidden="true">↓</span>
+                <span><small>APK</small><strong data-i18n="button.apk">APK下載</strong></span>
+              </a>
+              <a class="button discord" href="https://discord.gg/nzFJ8C8pbG" aria-label="加入 MoniMoni Discord 社群" data-i18n-attr="aria-label:aria.discord">
+                <span class="button-icon" aria-hidden="true">#</span>
+                <span><small>Community</small><strong data-i18n="button.discord">加入Discord</strong></span>
+              </a>
+              <a class="button ghost" href="#buy-api" aria-label="查看 API Key 購買管道" data-i18n-attr="aria-label:aria.apiButton">
+                <span class="button-icon" aria-hidden="true">♡</span>
+                <span><small>API Key</small><strong data-i18n="button.api">取得API Key</strong></span>
+              </a>
+            </div>
           </div>
 
           <div class="app-showcase" aria-label="MoniMoni App 截圖預覽" data-i18n-attr="aria-label:aria.screenshots">
@@ -1403,14 +1474,17 @@
           "zh-TW": {
             "meta.title": "MoniMoni - App 下載與 API Key",
             "meta.description": "MoniMoni 是一個仍在開發中的 App，支援匯入並解析模擬器文件、自訂配置劇本、特殊玩法、建立新副本、更換背景圖片和訊息樣式。",
-            "meta.keywords": "MoniMoni,iOS下載,APK下載,取得API Key,模擬器文件,自訂配置劇本,特殊玩法,數值,論壇,訊息,長期記憶",
-            "meta.ogDescription": "MoniMoni 是一個仍在開發中的 App，支援 iOS 下載、APK 下載和取得 API Key。",
+            "meta.keywords": "MoniMoni,App Store,Google Play,iOS下載,Android下載,APK下載,取得API Key,模擬器文件,自訂配置劇本,特殊玩法,數值,論壇,訊息,長期記憶",
+            "meta.ogDescription": "MoniMoni 是一個仍在開發中的 App，支援 App Store、Google Play、APK 下載和取得 API Key。",
             "note.diary": "小日記",
             "aria.header": "官網導覽",
             "aria.home": "MoniMoni 首頁",
             "aria.main": "主要連結",
             "aria.hero": "MoniMoni 產品介紹",
+            "aria.storeActions": "官方下載入口",
+            "aria.utilityActions": "其他入口",
             "aria.ios": "透過 App Store 下載 MoniMoni iOS 試玩版",
+            "aria.google": "透過 Google Play 下載 MoniMoni Android 版",
             "aria.apk": "下載 MoniMoni Android APK",
             "aria.discord": "加入 MoniMoni Discord 社群",
             "aria.apiButton": "查看 API Key 購買管道",
@@ -1430,7 +1504,8 @@
             "nav.next": "接下來",
             "nav.feedback": "回饋",
             "hero.copy": "這是一個仍在開發中的版本，可能會遇到 bug、功能不完善或介面調整🥺<br />如果你願意試試看，並告訴我哪裡不好用，非常感謝！🫶",
-            "button.ios": "iOS下載",
+            "button.ios": "App Store",
+            "button.google": "Google Play",
             "button.apk": "APK下載",
             "button.discord": "加入Discord",
             "button.api": "取得API Key",
@@ -1490,14 +1565,17 @@
           "zh-CN": {
             "meta.title": "MoniMoni - App 下载与 API Key",
             "meta.description": "MoniMoni 是一个仍在开发中的 App，支持导入并解析模拟器文档、自定义配置剧本、特殊玩法、创建新副本、更换背景图片和消息样式。",
-            "meta.keywords": "MoniMoni,iOS下载,APK下载,获取API Key,模拟器文档,自定义配置剧本,特殊玩法,数值,论坛,信息,长期记忆",
-            "meta.ogDescription": "MoniMoni 是一个仍在开发中的 App，支持 iOS 下载、APK 下载和获取 API Key。",
+            "meta.keywords": "MoniMoni,App Store,Google Play,iOS下载,Android下载,APK下载,获取API Key,模拟器文档,自定义配置剧本,特殊玩法,数值,论坛,信息,长期记忆",
+            "meta.ogDescription": "MoniMoni 是一个仍在开发中的 App，支持 App Store、Google Play、APK 下载和获取 API Key。",
             "note.diary": "小日记",
             "aria.header": "官网导航",
             "aria.home": "MoniMoni 首页",
             "aria.main": "主要链接",
             "aria.hero": "MoniMoni 产品介绍",
+            "aria.storeActions": "官方下载入口",
+            "aria.utilityActions": "其他入口",
             "aria.ios": "通过 App Store 下载 MoniMoni iOS 试玩版",
+            "aria.google": "通过 Google Play 下载 MoniMoni Android 版",
             "aria.apk": "下载 MoniMoni Android APK",
             "aria.discord": "加入 MoniMoni Discord 社区",
             "aria.apiButton": "查看 API Key 购买渠道",
@@ -1517,7 +1595,8 @@
             "nav.next": "接下来",
             "nav.feedback": "反馈",
             "hero.copy": "这是一个仍在开发中的版本，可能会遇到 bug、功能不完善或界面调整🥺<br />如果你愿意试试看，并告诉我哪里不好用，非常感谢！🫶",
-            "button.ios": "iOS下载",
+            "button.ios": "App Store",
+            "button.google": "Google Play",
             "button.apk": "APK下载",
             "button.discord": "加入Discord",
             "button.api": "获取API Key",
@@ -1577,14 +1656,17 @@
           "en": {
             "meta.title": "MoniMoni - App Download and API Key",
             "meta.description": "MoniMoni is an app in active development for importing simulator documents, customizing scripts, trying special modes, creating copies, and changing backgrounds and message styles.",
-            "meta.keywords": "MoniMoni,iOS download,APK download,API Key,simulator documents,custom scripts,special modes,stats,forum,messages,long-term memory",
-            "meta.ogDescription": "MoniMoni is an app in active development, with iOS download, APK download, and API Key setup.",
+            "meta.keywords": "MoniMoni,App Store,Google Play,iOS download,Android download,APK download,API Key,simulator documents,custom scripts,special modes,stats,forum,messages,long-term memory",
+            "meta.ogDescription": "MoniMoni is an app in active development, with App Store, Google Play, APK download, and API Key setup.",
             "note.diary": "dear diary",
             "aria.header": "Site navigation",
             "aria.home": "MoniMoni home",
             "aria.main": "Main links",
             "aria.hero": "MoniMoni product intro",
+            "aria.storeActions": "Official download links",
+            "aria.utilityActions": "Other links",
             "aria.ios": "Download the MoniMoni iOS beta from the App Store",
+            "aria.google": "Download MoniMoni for Android from Google Play",
             "aria.apk": "Download the MoniMoni Android APK",
             "aria.discord": "Join the MoniMoni Discord community",
             "aria.apiButton": "View API Key purchase options",
@@ -1604,7 +1686,8 @@
             "nav.next": "Coming Next",
             "nav.feedback": "Feedback",
             "hero.copy": "This app is still in development, so you may run into bugs, unfinished features, or UI changes 🥺<br />If you are willing to try it and tell me what feels off, thank you so much! 🫶",
-            "button.ios": "iOS Download",
+            "button.ios": "App Store",
+            "button.google": "Google Play",
             "button.apk": "APK Download",
             "button.discord": "Join Discord",
             "button.api": "Get API Key",
